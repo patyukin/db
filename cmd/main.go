@@ -32,4 +32,5 @@ func main() {
 
 	repo := db.New(dbConn)
 	uc := usecase.New(repo)
+
 }

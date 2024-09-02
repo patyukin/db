@@ -2,17 +2,18 @@ package usecase
 
 import (
 	"context"
-	"github.com/patyukin/db/internal/model"
+	"github.com/patyukin/db/internal/db"
 )
 
-type Repository interface {
-	SelectAllUsers(ctx context.Context) ([]model.User, error)
+type RegistryInterface interface {
+	GetRepo() db.RepositoryInterface
+	ReadCommitted(ctx context.Context, f db.Handler) error
 }
 
 type UseCase struct {
-	repo Repository
+	registry RegistryInterface
 }
 
-func New(repo Repository) *UseCase {
-	return &UseCase{repo: repo}
+func New(registry RegistryInterface) *UseCase {
+	return &UseCase{registry: registry}
 }
