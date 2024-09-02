@@ -7,7 +7,7 @@ postgresql:
   port: 5432
   user: "user"
   password: "user"
-  name: "auth"
+  name: "postgres"
 redis:
   host: "redis"
   port: 6379
